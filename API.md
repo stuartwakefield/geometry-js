@@ -1,7 +1,5 @@
 # GeometryJS
 
-### goemetry.createVector(x : double, y : double) : Vector2d
-
 ### geometry.createPoint(x : double, y : double) : Point
 
 ### geometry.createLine(start : Point, end : Point) : Line
