@@ -5,6 +5,7 @@ describe('Point', function () {
 
 	var a = new Point(10.0, 20.0);
 	var b = new Point(30.0, 40.0);
+	var c = new Point(10.0, 20.0);
 
 	describe('.constructor(x, y)', function () {
 		it('Throws an error if x and y are not numbers', function () {
@@ -46,6 +47,18 @@ describe('Point', function () {
 		it('Throws an error if the other point is not a point', function () {
 			assert.throws(function () {
 				a.distance(false);
+			});
+		});
+	});
+
+	describe('#equals(other)', function () {
+		it('Returns true if the other point represents the same coordinates', function () {
+			assert(a.equals(c));
+		});
+
+		it('Throws an error if the other point is not a point', function () {
+			assert.throws(function () {
+				a.equals(false);
 			});
 		});
 	});
