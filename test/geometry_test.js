@@ -5,6 +5,8 @@ describe('geometry', function () {
 	describe('.createPoint(x, y)', function () {
 		it('Creates a point with the provided coordinates', function () {
 			var point = geometry.createPoint(10.0, 20.0);
+			assert(point.x() === 10.0);
+			assert(point.y() === 20.0)
 		});
 	});
 });
