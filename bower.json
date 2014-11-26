@@ -1,0 +1,13 @@
+{
+  "name": "geometry-js",
+  "version": "0.1.0",
+  "homepage": "https://github.com/stuartwakefield/geometry-js",
+  "authors": [
+    "Stuart Wakefield <me@stuartwakefield.co.uk>"
+  ],
+  "description": "Library for geometry functions",
+  "keywords": [
+    "geometry"
+  ],
+  "license": "MIT"
+}
