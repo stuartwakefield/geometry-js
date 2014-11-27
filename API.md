@@ -2,10 +2,13 @@
 
 ### geometry.createPoint(x, y)
 
-Creates a Point instance for the provided coordinates. Both **x** and **y** must be
+Creates a **Point** instance for the provided coordinates. Both **x** and **y** must be
 numbers.
 
 ### geometry.createLine(start, end)
+
+Creates an instance of **Line** from the provided points **start** and **end**, both
+should be instances of **Point**.
 
 ### geometry.createLineRaw(x1, y1, x2, y2)
 
