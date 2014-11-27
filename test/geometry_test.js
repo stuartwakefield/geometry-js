@@ -31,4 +31,10 @@ describe('geometry', function () {
 			assert(line.end().y() === 20.0);
 		});
 	});
+
+	describe('.distance(x1, y1, x2, y2)', function () {
+		it('Returns the distance between the provided coordinates', function () {
+			assert(geometry.distance(2.0, 3.0, 7.0, 8.0) === Math.sqrt(50.0));
+		});
+	});
 });
