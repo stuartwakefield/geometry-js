@@ -25,42 +25,52 @@ describes a square whose corners are `(0, 10)`, `(10, 10)`, `(10, 20)` and `(0, 
 
 ### geometry.createContext()
 
+Creates a geometry context which can be used to apply transformations.
+
 ### geometry.distance(x1, y1, x2, y2)
 
 ## Class: geometry.Point(x, y)
 
-### point.x() : double
+### point.x()
 
-### point.y() : double
+Returns the position of the point along the **x** axis.
 
-### point.distance(other : Point) : double
+### point.y()
 
-### point.equals(other : Point) : boolean
+Returns the position of the point along the **y** axis.
+
+### point.distance(other)
+
+Returns the distance between the point and **other**.
+
+### point.equals(other)
+
+Returns **true** if the point and **other** represent the same coordinates.
 
 ## Class: geometry.Line(start, end)
 
 This class is created using the methods `geometry.createLine(start, end)` and
 `geometry.createLineRaw(x1, y1, x2, y2)`
 
-### line.start() : Point
+### line.start()
 
-### line.end() : Point
+### line.end()
 
-### line.length() : double
+### line.length()
 
-### line.direction() : double
+### line.direction()
 
-### line.intersects(other : Line) : boolean
+### line.intersects(other)
 
-### line.contains(point : Point) : boolean
+### line.contains(point)
 
-## Class: geometry.Context(rotation : double, translation : ContextTranslation, scale : ContextScale)
+## Class: geometry.Context(rotation, translation, scale)
 
-### context.rotate(angle) : Context
+### context.rotate(angle)
 
-### context.translate(x, y) : Context
+### context.translate(x, y)
 
-### context.scale(x, y) : Context
+### context.scale(x, y)
 
 ### context.createPoint(x, y)
 
@@ -68,13 +78,13 @@ This class is created using the methods `geometry.createLine(start, end)` and
 
 ### context.createLine(x1, y1, x2, y2)
 
-## Class: geometry.ContextTranslation(x : double, y : double)
+## Class: geometry.ContextTranslation(x, y)
 
 ### translation.x()
 
 ### translation.y()
 
-## Class: geometry.ContextScale(w : double, h : double)
+## Class: geometry.ContextScale(w, h)
 
 ### scale.x()
 
