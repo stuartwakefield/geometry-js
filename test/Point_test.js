@@ -29,19 +29,19 @@ describe('Point', function () {
 
 	describe('#x()', function () {
 		it('Returns the x position of the point', function () {
-			assert(a.x() == 10.0);
+			assert(a.x() === 10.0);
 		});
 	});
 
 	describe('#y()', function () {
 		it('Returns the y position of the point', function () {
-			assert(a.y() == 20.0);
+			assert(a.y() === 20.0);
 		});
 	});
 
 	describe('#distance(other)', function () {
 		it('Returns the distance to another point', function () {
-			assert(Math.ceil(a.distance(b)) == 29);
+			assert(Math.ceil(a.distance(b)) === 29);
 		});
 
 		it('Throws an error if the other point is not a point', function () {
@@ -58,7 +58,7 @@ describe('Point', function () {
 
 		it('Throws an error if the other point is not a point', function () {
 			assert.throws(function () {
-				a.equals(false);
+				a.equals(false);s
 			});
 		});
 	});

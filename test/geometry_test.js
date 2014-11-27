@@ -15,10 +15,10 @@ describe('geometry', function () {
 			var start = geometry.createPoint(0.0, 0.0);
 			var end = geometry.createPoint(20.0, 20.0);
 			var line = geometry.createLine(start, end);
-			assert(line.start().x() == 0.0);
-			assert(line.start().y() == 0.0);
-			assert(line.end().x() == 20.0);
-			assert(line.end().y() == 20.0);
+			assert(line.start().x() === 0.0);
+			assert(line.start().y() === 0.0);
+			assert(line.end().x() === 20.0);
+			assert(line.end().y() === 20.0);
 		});
 	});
 });
