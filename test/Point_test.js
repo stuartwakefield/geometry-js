@@ -58,7 +58,7 @@ describe('Point', function () {
 
 		it('Throws an error if the other point is not a point', function () {
 			assert.throws(function () {
-				a.equals(false);s
+				a.equals(false);
 			});
 		});
 	});
