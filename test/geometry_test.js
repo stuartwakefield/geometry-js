@@ -21,4 +21,14 @@ describe('geometry', function () {
 			assert(line.end().y() === 20.0);
 		});
 	});
+
+	describe('.createLineRaw(x1, y1, x2, y2)', function () {
+		it('Creates a line from the provided coordinates', function () {
+			var line = geometry.createLineRaw(0.0, 0.0, 20.0, 20.0);
+			assert(line.start().x() === 0.0);
+			assert(line.start().y() === 0.0);
+			assert(line.end().x() === 20.0);
+			assert(line.end().y() === 20.0);
+		});
+	});
 });
