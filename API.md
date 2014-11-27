@@ -1,18 +1,33 @@
 # GeometryJS
 
-### geometry.createPoint(x : double, y : double) : Point
+### geometry.createPoint(x, y)
 
-### geometry.createLine(start : Point, end : Point) : Line
+Creates a Point instance for the provided coordinates. Both **x** and **y** must be
+numbers.
 
-### geometry.createLine(x1 : double, y1 : double, x2 : double, y2 : double) : Line
+### geometry.createLine(start, end)
 
-### geometry.createRectangle() : Rectangle
+### geometry.createLineRaw(x1, y1, x2, y2)
 
-### geometry.createContext() : Context
+### geometry.createRectangle(edge, depth);
 
-### geometry.distance(x1, y1, x2, y2) : double
+Creates a rectangle from a Line instances **edge** and a **depth** which must be a
+number.
 
-## Point(x : double, y : double)
+The **edge** describes one of the edges of the rectangle. The **depth** is the
+length of the adjacent edge which extends in a direction 90 degrees counter-clockwise
+from **edge**.
+
+Example
+
+The rectangle defined with the **edge** `(0, 10)->(10,10)` and the **depth** of `10` 
+describes a square whose corners are `(0, 10)`, `(10, 10)`, `(10, 20)` and `(0, 20)`. 
+
+### geometry.createContext()
+
+### geometry.distance(x1, y1, x2, y2)
+
+## Class: geometry.Point(x, y)
 
 ### point.x() : double
 
@@ -22,7 +37,10 @@
 
 ### point.equals(other : Point) : boolean
 
-## Line(start : Point, end : Point) : Line
+## Class: geometry.Line(start, end)
+
+This class is created using the methods `geometry.createLine(start, end)` and
+`geometry.createLineRaw(x1, y1, x2, y2)`
 
 ### line.start() : Point
 
@@ -36,7 +54,7 @@
 
 ### line.contains(point : Point) : boolean
 
-## Context(rotation : double, translation : ContextTranslation, scale : ContextScale)
+## Class: geometry.Context(rotation : double, translation : ContextTranslation, scale : ContextScale)
 
 ### context.rotate(angle) : Context
 
@@ -50,13 +68,13 @@
 
 ### context.createLine(x1, y1, x2, y2)
 
-## ContextTranslation(x : double, y : double)
+## Class: geometry.ContextTranslation(x : double, y : double)
 
 ### translation.x()
 
 ### translation.y()
 
-## ContextScale(w : double, h : double)
+## Class: geometry.ContextScale(w : double, h : double)
 
 ### scale.x()
 
