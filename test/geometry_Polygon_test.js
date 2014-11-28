@@ -58,4 +58,15 @@ describe('geometry.Polygon', function () {
 			assert.equal(lines[2].end().y(), 0.0);
 		});
 	});
+
+	describe('#perimeter()', function () {
+		it('Returns the length of the perimeter of the polygon', function () {
+			var polygon = geometry.createPolygonRaw(
+				0.0, 0.0,
+				10.0, 10.0,
+				0.0, 10.0
+			);
+			assert.equal(polygon.perimeter(), Math.sqrt(200) + 20);
+		});
+	});
 });
