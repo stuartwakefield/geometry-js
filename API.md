@@ -60,6 +60,11 @@ in relation to the azimuth, the azimuth is the positive x axis.
 
 Returns **true** if the point and **other** represent the same coordinates.
 
+### point.translate(x, y)
+
+Returns a new **Point** that represents the position of the point after translating by
+**x** and **y**. Both **x** and **y** must be numbers.
+
 ## Class: geometry.Line(start, end)
 
 This class is created using the methods `geometry.createLine(start, end)` and
@@ -82,7 +87,7 @@ Returns the length of the line from the **start** to the **end**.
 Returns the angle (in radians) of the line counterclockwise in relation to the
 azimuth.
 
-### line.intersects(other)
+### line.intersect(other)
 
 ### line.contains(point)
 

@@ -71,4 +71,12 @@ describe('Point', function () {
 			});
 		});
 	});
+
+	describe('#translate(x, y)', function () {
+		it('Returns a new point representing the original point translated', function () {
+			var translated = new Point(5.0, 5.0).translate(10.0, -10.0);
+			assert.equal(translated.x(), 15.0);
+			assert.equal(translated.y(), -5.0);
+		});
+	});
 });
