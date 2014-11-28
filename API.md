@@ -134,3 +134,15 @@ Returns a new **Line** instance where the **start** and **end** points are rever
 ### scale.x()
 
 ### scale.y()
+
+## geometry.float
+
+### float.EPSILON
+
+Represents the difference between the smallest value greater than one that can be
+represented by a number and one. Used for floating point comparison.
+
+### float.equal(a, b)
+
+Returns **true** if the two numbers **a** and **b** could represent the same number
+taking into consideration floating point accuracy errors.
