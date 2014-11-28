@@ -130,6 +130,24 @@ Returns the perimeter length of the polygon.
 
 Returns the area of the polygon.
 
+### polygon.containsPoint(point)
+
+### polygon.contains(other)
+
+### polygon.intersectLine(line)
+
+### polygon.intersect(other)
+
+### polygon.union(other)
+
+### polygon.diff(other)
+
+### polygon.reverse()
+
+### polygon.truncate(dist)
+
+### polygon.point(dist)
+
 ## Class: geometry.Context(rotation, translation, scale)
 
 ### context.rotate(angle)
