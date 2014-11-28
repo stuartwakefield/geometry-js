@@ -12,6 +12,9 @@ should be instances of **Point**.
 
 ### geometry.createLineRaw(x1, y1, x2, y2)
 
+Creates an instance of **Line** from the provided coordinates. All coordinates: **x1**,
+**y1**, **x2** and **y2** must be numbers.
+
 ### geometry.createRectangle(edge, depth);
 
 Creates a rectangle from a Line instances **edge** and a **depth** which must be a
@@ -34,6 +37,8 @@ Creates a geometry context which can be used to apply transformations.
 
 ## Class: geometry.Point(x, y)
 
+This class is created using the method `geometry.createPoint(x, y)`.
+
 ### point.x()
 
 Returns the position of the point along the **x** axis.
@@ -53,7 +58,7 @@ Returns **true** if the point and **other** represent the same coordinates.
 ## Class: geometry.Line(start, end)
 
 This class is created using the methods `geometry.createLine(start, end)` and
-`geometry.createLineRaw(x1, y1, x2, y2)`
+`geometry.createLineRaw(x1, y1, x2, y2)`.
 
 ### line.start()
 
