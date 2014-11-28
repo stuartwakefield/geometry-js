@@ -46,14 +46,7 @@ describe('geometry', function () {
 				geometry.createPoint(10.0, 10.0),
 				geometry.createPoint(0.0, 10.0)
 			);
-			assert.equal(polygon.point(0).x(), 0.0);
-			assert.equal(polygon.point(0).y(), 0.0);
-			assert.equal(polygon.point(1).x(), 10.0);
-			assert.equal(polygon.point(1).y(), 0.0);
-			assert.equal(polygon.point(2).x(), 10.0);
-			assert.equal(polygon.point(2).y(), 10.0);
-			assert.equal(polygon.point(3).x(), 0.0);
-			assert.equal(polygon.point(3).y(), 10.0);
+			assert.equal(polygon.points().length, 4);
 		});
 	});
 
@@ -65,14 +58,7 @@ describe('geometry', function () {
 				10.0, 10.0,
 				0.0, 10.0
 			);
-			assert.equal(polygon.point(0).x(), 0.0);
-			assert.equal(polygon.point(0).y(), 0.0);
-			assert.equal(polygon.point(1).x(), 10.0);
-			assert.equal(polygon.point(1).y(), 0.0);
-			assert.equal(polygon.point(2).x(), 10.0);
-			assert.equal(polygon.point(2).y(), 10.0);
-			assert.equal(polygon.point(3).x(), 0.0);
-			assert.equal(polygon.point(3).y(), 10.0);
+			assert.equal(polygon.points().length, 4);
 		});
 
 		it('Throws an error if there is an uneven number of values', function () {

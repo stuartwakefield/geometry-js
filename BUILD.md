@@ -1,8 +1,8 @@
 # Build
 
-Get Grunt CLI:
+Get Grunt CLI and Mocha:
 
-	npm install -g grunt-cli
+	npm install -g grunt-cli mocha
 
 Install local dependencies:
 

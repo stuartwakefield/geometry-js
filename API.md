@@ -32,7 +32,7 @@ Creates a geometry context which can be used to apply transformations.
 
 ## Class: geometry.Point(x, y)
 
-This class is created using the method `geometry.createPoint(x, y)`.
+**Point** is created using the method `geometry.createPoint(x, y)`.
 
 ### point.x()
 
@@ -62,7 +62,7 @@ Returns a new **Point** that represents the position of the point after translat
 
 ## Class: geometry.Line(start, end)
 
-This class is created using the methods `geometry.createLine(start, end)` and
+**Line** is created using the methods `geometry.createLine(start, end)` and
 `geometry.createLineRaw(x1, y1, x2, y2)`.
 
 ### line.start()
@@ -103,6 +103,32 @@ the same points.
 ### line.reverse()
 
 Returns a new **Line** instance where the **start** and **end** points are reversed.
+
+### line.point(dist)
+
+Returns a **Point** along the line that is the given distance **dist** from the
+**start** point. Will return **null** if **dist** is out of bounds.
+
+## Class: geometry.Polygon(p1, p2, ..., pN)
+
+**Polygon** is created using the methods `geometry.createPolygon(p1, p2, ...,p3)`
+and `geometry.createPolygonRaw(x1, y1, x2, y2, ..., xN, yN)`.
+
+### polygon.points()
+
+Returns the points that represent the vertices of the polygon.
+
+### polygon.lines()
+
+Returns the lines that represent the edges of the polygon.
+
+### polygon.perimeter()
+
+Returns the perimeter length of the polygon.
+
+### polygon.area()
+
+Returns the area of the polygon.
 
 ## Class: geometry.Context(rotation, translation, scale)
 
