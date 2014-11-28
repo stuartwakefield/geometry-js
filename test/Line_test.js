@@ -64,4 +64,28 @@ describe('Line', function () {
 			assert.equal(a.intersect(b), null);
 		});
 	});
+
+	describe('#containsPoint(point)', function () {
+		it('Returns true if the point is along the line', function () {
+			var a = geometry.createLineRaw(0.0, 0.0, 10.0, 10.0);
+			var b = geometry.createLineRaw(0.0, 2.0, 10.0, 10.0);
+			var c = geometry.createPoint(3.0, 3.0);
+			var d = geometry.createPoint(7.0, 7.0);
+			var e = geometry.createPoint(5.0, 6.0);
+			assert(a.containsPoint(c));
+			assert(a.containsPoint(d));
+			assert(b.containsPoint(e));
+		});
+
+		it('Returns false if the point is not along the line', function () {
+			var a = geometry.createLineRaw(0.0, 0.0, 10.0, 10.0);
+			var b = geometry.createLineRaw(0.0, 2.0, 10.0, 10.0);
+			var c = geometry.createPoint(3.0, 3.0);
+			var d = geometry.createPoint(7.0, 7.0);
+			var e = geometry.createPoint(5.0, 6.0);
+			assert(!b.containsPoint(c));
+			assert(!b.containsPoint(d));
+			assert(!a.containsPoint(e));
+		});
+	});
 });
