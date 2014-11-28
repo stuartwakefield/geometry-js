@@ -51,6 +51,11 @@ Returns the position of the point along the **y** axis.
 
 Returns the distance between the point and **other**.
 
+### point.direction(other)
+
+Returns the angle (in radians) of the point **other**, the angle is counterclockwise
+in relation to the azimuth, the azimuth is the positive x axis.
+
 ### point.equals(other)
 
 Returns **true** if the point and **other** represent the same coordinates.
@@ -62,11 +67,20 @@ This class is created using the methods `geometry.createLine(start, end)` and
 
 ### line.start()
 
+Returns the **Point** representing the start of the line.
+
 ### line.end()
+
+Returns the **Point** representing the end of the line.
 
 ### line.length()
 
+Returns the length of the line from the **start** to the **end**.
+
 ### line.direction()
+
+Returns the angle (in radians) of the line counterclockwise in relation to the
+azimuth.
 
 ### line.intersects(other)
 

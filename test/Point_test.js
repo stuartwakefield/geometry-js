@@ -51,6 +51,15 @@ describe('Point', function () {
 		});
 	});
 
+	describe('#direction(other)', function () {
+		it('Returns the angle of direction to another point in relation to the azimuth', function () {
+			assert.equal(new Point(0.0, 0.0).direction(new Point(0.0, 10.0)), Math.PI / 2);
+			assert.equal(new Point(0.0, 0.0).direction(new Point(10.0, 0.0)), 0.0);
+			assert.equal(new Point(0.0, 0.0).direction(new Point(-10.0, 0.0)), Math.PI);
+			assert.equal(new Point(0.0, 0.0).direction(new Point(0.0, -10.0)), -Math.PI / 2);
+		});
+	});
+
 	describe('#equals(other)', function () {
 		it('Returns true if the other point represents the same coordinates', function () {
 			assert(a.equals(c));
