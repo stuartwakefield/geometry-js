@@ -92,7 +92,22 @@ azimuth.
 Returns the **Point** at which **other** intersects this **Line** instance. Will
 return **null** if the lines do not intersect.
 
-### line.contains(point)
+### line.containsPoint(point)
+
+Returns **true** if the point sits along the line, **false** otherwise.
+
+### line.contains(other)
+
+Returns **true** if the line **other** is contained within this **Line** instance.
+
+### line.equals(other)
+
+Returns **true** if the line and **other** represent lines starting and ending at
+the same points.
+
+### line.reverse()
+
+Returns a new **Line** instance where the **start** and **end** points are reversed.
 
 ## Class: geometry.Context(rotation, translation, scale)
 
