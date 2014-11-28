@@ -83,9 +83,17 @@ describe('Line', function () {
 			var c = geometry.createPoint(3.0, 3.0);
 			var d = geometry.createPoint(7.0, 7.0);
 			var e = geometry.createPoint(5.0, 6.0);
+			var f = geometry.createPoint(11.0, 11.0);
 			assert(!b.containsPoint(c));
 			assert(!b.containsPoint(d));
 			assert(!a.containsPoint(e));
+			assert(!a.containsPoint(f));
+		});
+
+		it('Returns try if the point suffers floating point issues', function () {
+			var a = geometry.createLineRaw(0.0, 0.1, 0.3, 0.2);
+			var b = geometry.createPoint(0.15, 0.15);
+			assert(a.containsPoint(b));
 		});
 	});
 });
