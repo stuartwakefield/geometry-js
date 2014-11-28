@@ -38,7 +38,7 @@ describe('geometry', function () {
 		});
 	});
 
-	describe('.createPolygon(point1, point2, ..., pointN)', function () {
+	describe('.createPolygon(p1, p2, ..., pN)', function () {
 		it('Creates a polygon from the provided points', function () {
 			var polygon = geometry.createPolygon(
 				geometry.createPoint(0.0, 0.0),

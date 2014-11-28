@@ -15,10 +15,9 @@ must be instances of **Point**.
 Creates an instance of **Line** from the provided coordinates. All coordinates: **x1**,
 **y1**, **x2** and **y2** must be numbers.
 
-### geometry.createPolygon(points);
+### geometry.createPolygon(p1, p2, ..., pN);
 
-Creates a **Polygon** from an array of **points**, all points must be instances of
-**Point**.
+Creates a **Polygon** from passed **points**, all points must be instances of **Point**.
 
 ### geometry.createPolygonRaw(x1, y1, x2, y2, ..., xN, yN)
 
