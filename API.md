@@ -8,7 +8,7 @@ numbers.
 ### geometry.createLine(start, end)
 
 Creates an instance of **Line** from the provided points **start** and **end**, both
-should be instances of **Point**.
+must be instances of **Point**.
 
 ### geometry.createLineRaw(x1, y1, x2, y2)
 
@@ -17,7 +17,13 @@ Creates an instance of **Line** from the provided coordinates. All coordinates: 
 
 ### geometry.createPolygon(points);
 
-Creates a **Polygon** from an array of **points**.
+Creates a **Polygon** from an array of **points**, all points must be instances of
+**Point**.
+
+### geometry.createPolygonRaw(x1, y1, x2, y2, ..., xN, yN)
+
+Creates a **Polygon** from the provided coordinates. All coordinates must be numbers, an
+unlimited number of coordinate pairs can be provided but must be in pairs.
 
 ### geometry.createContext()
 

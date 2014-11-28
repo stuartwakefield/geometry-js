@@ -38,14 +38,14 @@ describe('geometry', function () {
 		});
 	});
 
-	describe('.createPolygon(points)', function () {
+	describe('.createPolygon(point1, point2, ..., pointN)', function () {
 		it('Creates a polygon from the provided points', function () {
-			var polygon = geometry.createPolygon([
+			var polygon = geometry.createPolygon(
 				geometry.createPoint(0.0, 0.0),
 				geometry.createPoint(10.0, 0.0),
 				geometry.createPoint(10.0, 10.0),
 				geometry.createPoint(0.0, 10.0)
-			]);
+			);
 			assert.equal(polygon.point(0).x(), 0.0);
 			assert.equal(polygon.point(0).y(), 0.0);
 			assert.equal(polygon.point(1).x(), 10.0);
@@ -54,6 +54,36 @@ describe('geometry', function () {
 			assert.equal(polygon.point(2).y(), 10.0);
 			assert.equal(polygon.point(3).x(), 0.0);
 			assert.equal(polygon.point(3).y(), 10.0);
+		});
+	});
+
+	describe('.createPolygonRaw(x1, y1, x2, y2, ..., xN, yN)', function () {
+		it('Creates a polygon from the provided coordinates', function () {
+			var polygon = geometry.createPolygonRaw(
+				0.0, 0.0,
+				10.0, 0.0,
+				10.0, 10.0,
+				0.0, 10.0
+			);
+			assert.equal(polygon.point(0).x(), 0.0);
+			assert.equal(polygon.point(0).y(), 0.0);
+			assert.equal(polygon.point(1).x(), 10.0);
+			assert.equal(polygon.point(1).y(), 0.0);
+			assert.equal(polygon.point(2).x(), 10.0);
+			assert.equal(polygon.point(2).y(), 10.0);
+			assert.equal(polygon.point(3).x(), 0.0);
+			assert.equal(polygon.point(3).y(), 10.0);
+		});
+
+		it('Throws an error if there is an uneven number of values', function () {
+			assert.throws(function () {
+				geometry.createPolygonRaw(
+					0.0, 0.0,
+					10.0, 0.0,
+					10.0, 10.0,
+					0.0
+				);
+			});
 		});
 	});
 });
