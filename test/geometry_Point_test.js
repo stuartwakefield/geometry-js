@@ -1,7 +1,7 @@
 var assert = require('assert');
 var Point = require('../lib/geometry/Point');
 
-describe('Point', function () {
+describe('geometry.Point', function () {
 
 	var a = new Point(10.0, 20.0);
 	var b = new Point(30.0, 40.0);
