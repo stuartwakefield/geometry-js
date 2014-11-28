@@ -37,4 +37,23 @@ describe('geometry', function () {
 			assert(geometry.distance(2.0, 3.0, 7.0, 8.0) === Math.sqrt(50.0));
 		});
 	});
+
+	describe('.createPolygon(points)', function () {
+		it('Creates a polygon from the provided points', function () {
+			var polygon = geometry.createPolygon([
+				geometry.createPoint(0.0, 0.0),
+				geometry.createPoint(10.0, 0.0),
+				geometry.createPoint(10.0, 10.0),
+				geometry.createPoint(0.0, 10.0)
+			]);
+			assert.equal(polygon.point(0).x(), 0.0);
+			assert.equal(polygon.point(0).y(), 0.0);
+			assert.equal(polygon.point(1).x(), 10.0);
+			assert.equal(polygon.point(1).y(), 0.0);
+			assert.equal(polygon.point(2).x(), 10.0);
+			assert.equal(polygon.point(2).y(), 10.0);
+			assert.equal(polygon.point(3).x(), 0.0);
+			assert.equal(polygon.point(3).y(), 10.0);
+		});
+	});
 });

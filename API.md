@@ -15,19 +15,9 @@ should be instances of **Point**.
 Creates an instance of **Line** from the provided coordinates. All coordinates: **x1**,
 **y1**, **x2** and **y2** must be numbers.
 
-### geometry.createRectangle(edge, depth);
+### geometry.createPolygon(points);
 
-Creates a rectangle from a Line instances **edge** and a **depth** which must be a
-number.
-
-The **edge** describes one of the edges of the rectangle. The **depth** is the
-length of the adjacent edge which extends in a direction 90 degrees counter-clockwise
-from **edge**.
-
-Example
-
-The rectangle defined with the **edge** `(0, 10)->(10,10)` and the **depth** of `10` 
-describes a square whose corners are `(0, 10)`, `(10, 10)`, `(10, 20)` and `(0, 20)`. 
+Creates a **Polygon** from an array of **points**.
 
 ### geometry.createContext()
 
