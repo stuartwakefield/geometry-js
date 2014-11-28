@@ -37,4 +37,11 @@ describe('Line', function () {
 			assert.equal(Math.round(line.length() * 100) / 100, 48.13);
 		});
 	});
+
+	describe('#direction()', function () {
+		it('Returns the direction of the line in relation to the azimuth', function () {
+			var line = new Line(new Point(12.0, 23.5), new Point(56.0, 43.0));
+			assert.equal(Math.round(line.direction() * 100) / 100, 0.42);
+		});
+	});
 });
