@@ -89,6 +89,9 @@ azimuth.
 
 ### line.intersect(other)
 
+Returns the **Point** at which **other** intersects this **Line** instance. Will
+return **null** if the lines do not intersect.
+
 ### line.contains(point)
 
 ## Class: geometry.Context(rotation, translation, scale)
