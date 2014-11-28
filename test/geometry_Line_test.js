@@ -90,7 +90,7 @@ describe('Line', function () {
 			assert(!a.containsPoint(f));
 		});
 
-		it('Returns try if the point suffers floating point issues', function () {
+		it('Returns true even if the points suffers floating point comparison issues', function () {
 			var a = geometry.createLineRaw(0.0, 0.1, 0.3, 0.2);
 			var b = geometry.createPoint(0.15, 0.15);
 			assert(a.containsPoint(b));
