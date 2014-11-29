@@ -3,7 +3,7 @@ var suite = new Benchmark.Suite;
 var geometry = require('../lib/geometry');
 var Point = require('../lib/geometry/Point');
 
-function intersect1(l1, l2) {
+function intersect1 (l1, l2) {
 
 	var a = l1.end().subtract(l1.start());
 	var b = l2.end().subtract(l2.start());
@@ -19,7 +19,7 @@ function intersect1(l1, l2) {
 	return null;
 }
 
-function intersect2(l1, l2) {
+function intersect2 (l1, l2) {
 
 	var l1sx = l1.start().x();
 	var l1sy = l1.start().y();
@@ -49,7 +49,7 @@ function intersect2(l1, l2) {
 	return null;
 }
 
-function intersect3(l1, l2) {
+function intersect3 (l1, l2) {
 
 	var a = l1.end().subtract(l1.start());
 	var b = l2.end().subtract(l2.start());
