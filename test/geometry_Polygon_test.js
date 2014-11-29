@@ -72,12 +72,12 @@ describe('geometry.Polygon', function () {
 
 	describe('#area()', function () {
 		it('Returns the area of the polygon', function () {
-			var square = geometry.createPolygonRaw(
+			var triangle = geometry.createPolygonRaw(
 				0.0, 0.0,
 				10.0, 10.0,
 				0.0, 10.0
 			);
-			assert.equal(square.area(), 50.0);
+			assert.equal(triangle.area(), 50.0);
 
 			var hexagon = geometry.createPolygonRaw(
 				0.0, -4.0,
@@ -98,6 +98,57 @@ describe('geometry.Polygon', function () {
 				4.0, -1.0
 			);
 			assert.equal(polygon.area(), 66.0);
+		});
+	});
+
+	describe('#containsPoint(point)', function () {
+		it('Returns true if the point is contained within the polygon', function () {
+			var a = geometry.createPolygonRaw(
+				0.0, 0.0,
+				10.0, 10.0,
+				0.0, 10.0
+			);
+			var b = geometry.createPolygonRaw(
+				0.0, 0.0,
+				10.0, 0.0,
+				0.0, 10.0,
+				3.0, 10.0
+			);
+			var c = geometry.createPolygonRaw(
+				0.0, 0.0,
+				10.0, 0.0,
+				0.0, 5.0,
+				10.0, 6.0
+			);
+			var point = geometry.createPoint(3.0, 5.0);
+			assert(a.containsPoint(point));
+			assert(b.containsPoint(point));
+			assert(c.containsPoint(point));
+		});
+
+		it('Returns false if the point is not contained within the polygon', function () {
+			var a = geometry.createPolygonRaw(
+				0.0, 0.0,
+				10.0, 0.0,
+				10.0, 5.0
+			);
+			var c = geometry.createPolygonRaw(
+				0.0, 0.0,
+				10.0, 0.0,
+				10.0, 10.0,
+				0.0, 10.0,
+				10.0, 5.0
+			);
+			var b = geometry.createPolygonRaw(
+				0.0, 0.0,
+				0.0, 10.0,
+				10.0, 0.0,
+				3.0, 10.0
+			);
+			var point = geometry.createPoint(3.0, 5.0);
+			assert(!a.containsPoint(point));
+			assert(!b.containsPoint(point));
+			assert(!c.containsPoint(point));
 		});
 	});
 });
