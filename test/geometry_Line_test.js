@@ -112,6 +112,26 @@ describe('geometry.Line', function () {
 		});
 	});
 
+	describe('#equals(other)', function () {
+		it('Returns true if the two lines represent the same lines', function () {
+			var a = geometry.createLineRaw(0.0, 0.0, 10.0, 10.0);
+			var b = geometry.createLineRaw(0.0, 0.0, 10.0, 10.0);
+			assert(a.equals(b));
+		});
+
+		it('Returns false if the two lines do not represent the same lines', function () {
+			var a = geometry.createLineRaw(0.0, 0.0, 10.0, 10.0);
+			var b = geometry.createLineRaw(2.0, 2.0, 8.0, 8.0);
+			assert(!a.equals(b));
+		});
+
+		it('Returns false if the two lines have the same coordinates but are reversed', function () {
+			var a = geometry.createLineRaw(0.0, 0.0, 10.0, 10.0);
+			var b = geometry.createLineRaw(10.0, 10.0, 0.0, 0.0);
+			assert(!a.equals(b));
+		});
+	});
+
 	describe('#reverse()', function () {
 		it('Reverses the start and end points of a line', function () {
 			var a = geometry.createLineRaw(0.0, 0.0, 10.0, 10.0);
