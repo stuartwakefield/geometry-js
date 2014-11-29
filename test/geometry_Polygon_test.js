@@ -69,4 +69,35 @@ describe('geometry.Polygon', function () {
 			assert.equal(polygon.perimeter(), Math.sqrt(200) + 20);
 		});
 	});
+
+	describe('#area()', function () {
+		it('Returns the area of the polygon', function () {
+			var square = geometry.createPolygonRaw(
+				0.0, 0.0,
+				10.0, 10.0,
+				0.0, 10.0
+			);
+			assert.equal(square.area(), 50.0);
+
+			var hexagon = geometry.createPolygonRaw(
+				0.0, -4.0,
+				5.0, -2.0,
+				5.0, 2.0,
+				0.0, 4.0,
+				-5.0, 2.0,
+				-5.0, -2.0
+			);
+			assert.equal(hexagon.area(), 60.0);
+
+			var polygon = geometry.createPolygonRaw(
+				1.0, 5.0,
+				-10.0, 1.0,
+				-6.0, -3.0,
+				-4.0, 1.0,
+				-1.0, -5.0,
+				4.0, -1.0
+			);
+			assert.equal(polygon.area(), 66.0);
+		});
+	});
 });
