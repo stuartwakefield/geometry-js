@@ -132,6 +132,12 @@ describe('geometry.Polygon', function () {
 				10.0, 0.0,
 				10.0, 5.0
 			);
+			var b = geometry.createPolygonRaw(
+				0.0, 0.0,
+				0.0, 10.0,
+				10.0, 0.0,
+				3.0, 10.0
+			);
 			var c = geometry.createPolygonRaw(
 				0.0, 0.0,
 				10.0, 0.0,
@@ -139,16 +145,72 @@ describe('geometry.Polygon', function () {
 				0.0, 10.0,
 				10.0, 5.0
 			);
-			var b = geometry.createPolygonRaw(
-				0.0, 0.0,
-				0.0, 10.0,
-				10.0, 0.0,
-				3.0, 10.0
-			);
 			var point = geometry.createPoint(3.0, 5.0);
 			assert(!a.containsPoint(point));
 			assert(!b.containsPoint(point));
 			assert(!c.containsPoint(point));
+		});
+	});
+
+	describe('#contains(other)', function () {
+		it('Returns true if the other polygon is entirely contained within the polygon', function () {
+			var a = geometry.createPolygonRaw(
+				0.0, 0.0,
+				0.0, 6.0,
+				6.0, 6.0
+			);
+			var b = geometry.createPolygonRaw(
+				1.0, 2.0,
+				1.0, 5.0,
+				4.0, 5.0
+			);
+			var c = geometry.createPolygonRaw(
+				0.0, 0.0,
+				3.0, 3.0,
+				6.0, 0.0,
+				6.0, 6.0,
+				0.0, 6.0
+			);
+			var d = geometry.createPolygonRaw(
+				1.0, 2.0,
+				2.0, 4.0,
+				5.0, 2.0,
+				5.0, 5.0,
+				1.0, 5.0
+			);
+			assert(a.contains(b));
+			assert(c.contains(d));
+			assert(c.contains(b));
+		});
+
+		it('Returns false if the other polygon is not entirely contained within the polygon', function () {
+			var a = geometry.createPolygonRaw(
+				0.0, 0.0,
+				0.0, 6.0,
+				6.0, 6.0
+			);
+			var b = geometry.createPolygonRaw(
+				1.0, 2.0,
+				1.0, 5.0,
+				4.0, 7.0
+			);
+			var c = geometry.createPolygonRaw(
+				0.0, 0.0,
+				3.0, 3.0,
+				6.0, 0.0,
+				6.0, 3.0,
+				0.0, 6.0
+			);
+			var d = geometry.createPolygonRaw(
+				1.0, 2.0,
+				2.0, 4.0,
+				5.0, 2.0,
+				5.0, 5.0,
+				1.0, 5.0
+			);
+			assert(!a.contains(b));
+			assert(!c.contains(d));
+			assert(!c.contains(b));
 		});
 	});
 });

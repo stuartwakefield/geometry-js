@@ -1,5 +1,5 @@
 var Benchmark = require('benchmark');
-var suite = new Benchmark.Suite;
+var suite = new Benchmark.Suite();
 var geometry = require('../lib/geometry');
 var float = require('../lib/geometry/float');
 
