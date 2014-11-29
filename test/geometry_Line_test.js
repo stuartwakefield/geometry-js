@@ -97,6 +97,21 @@ describe('geometry.Line', function () {
 		});
 	});
 
+	describe('#contains(other)', function () {
+		it('Returns true if the line contains other', function () {
+			var a = geometry.createLineRaw(0.0, 0.0, 10.0, 10.0);
+			var b = geometry.createLineRaw(2.0, 2.0, 8.0, 8.0);
+			assert(a.contains(b));
+			assert(a.contains(a));
+		});
+
+		it('Returns false if the line does not contain other', function () {
+			var a = geometry.createLineRaw(0.0, 0.0, 10.0, 10.0);
+			var b = geometry.createLineRaw(2.0, 2.0, 8.0, 8.0);
+			assert(!b.contains(a));
+		});
+	});
+
 	describe('#reverse()', function () {
 		it('Reverses the start and end points of a line', function () {
 			var a = geometry.createLineRaw(0.0, 0.0, 10.0, 10.0);
