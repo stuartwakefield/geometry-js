@@ -96,4 +96,19 @@ describe('geometry.Line', function () {
 			assert(a.containsPoint(b));
 		});
 	});
+
+	describe('#reverse()', function () {
+		it('Reverses the start and end points of a line', function () {
+			var a = geometry.createLineRaw(0.0, 0.0, 10.0, 10.0);
+			var b = a.reverse();
+			assert.equal(a.start().x(), 0.0);
+			assert.equal(b.start().x(), 10.0);
+			assert.equal(a.start().y(), 0.0);
+			assert.equal(b.start().y(), 10.0);
+			assert.equal(a.end().x(), 10.0);
+			assert.equal(b.end().x(), 0.0);
+			assert.equal(a.end().y(), 10.0);
+			assert.equal(b.end().y(), 0.0);
+		});
+	});
 });
