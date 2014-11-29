@@ -114,6 +114,12 @@ Returns a new **Line** instance where the **start** and **end** points are rever
 Returns a **Point** along the line that is the given distance **dist** from the
 **start** point. Will return **null** if **dist** is out of bounds.
 
+### line.split(dist)
+
+Returns an array of one or two **Line** instances that represent the two line
+components that are produced as a result of splitting the line at the given distance
+from start. Returns a single line component if **dist** is out of bounds.
+
 ## Class: geometry.Polygon(p1, p2, ..., pN)
 
 **Polygon** is created using the methods `geometry.createPolygon(p1, p2, ...,p3)`

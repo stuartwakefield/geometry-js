@@ -175,4 +175,63 @@ describe('geometry.Line', function () {
 			assert(d === null);
 		});
 	});
+
+	describe('#split(dist)', function () {
+		it('Returns the line components resulting from splitting at the specified distance from the start', function () {
+			var a = geometry.createLineRaw(0.0, 5.0, 10.0, 5.0);
+			var b = geometry.createLineRaw(5.0, 0.0, 5.0, 10.0);
+			var c = geometry.createLineRaw(0.0, 0.0, 10.0, 10.0);
+			var d = a.split(5.0);
+			var e = b.split(2.0);
+			var f = c.split(8.0);
+
+			assert.equal(d.length, 2);
+			assert.equal(d[0].start().x(), 0.0);
+			assert.equal(d[0].start().y(), 5.0);
+			assert.equal(d[0].end().x(), 5.0);
+			assert.equal(d[0].end().y(), 5.0);
+			assert.equal(d[1].start().x(), 5.0);
+			assert.equal(d[1].start().y(), 5.0);
+			assert.equal(d[1].end().x(), 10.0);
+			assert.equal(d[1].end().y(), 5.0);
+
+			assert.equal(e.length, 2);
+			assert.equal(e[0].start().x(), 5.0);
+			assert.equal(e[0].start().y(), 0.0);
+			assert.equal(e[0].end().x(), 5.0);
+			assert.equal(e[0].end().y(), 2.0);
+			assert.equal(e[1].start().x(), 5.0);
+			assert.equal(e[1].start().y(), 2.0);
+			assert.equal(e[1].end().x(), 5.0);
+			assert.equal(e[1].end().y(), 10.0);
+
+			assert.equal(f.length, 2);
+			assert.equal(f[0].start().x(), 0.0);
+			assert.equal(f[0].start().y(), 0.0);
+			assert.equal(Math.round(f[0].end().x() * 100) / 100, 5.66);
+			assert.equal(Math.round(f[0].end().y() * 100) / 100, 5.66);
+			assert.equal(Math.round(f[1].start().x() * 100) / 100, 5.66);
+			assert.equal(Math.round(f[1].start().y() * 100) / 100, 5.66);
+			assert.equal(f[1].end().x(), 10.0);
+			assert.equal(f[1].end().y(), 10.0);
+		});
+
+		it('Returns a single line component if dist is out of bounds', function () {
+			var a = geometry.createLineRaw(0.0, 5.0, 10.0, 5.0);
+			var b = geometry.createLineRaw(5.0, 0.0, 5.0, 10.0);
+			var c = geometry.createLineRaw(0.0, 0.0, 10.0, 10.0);
+			var d = a.split(12.0);
+			var e = b.split(-2.0);
+			var f = c.split(15.0);
+
+			assert.equal(d.length, 1);
+			assert(d[0].equals(a));
+
+			assert.equal(e.length, 1);
+			assert(e[0].equals(b));
+
+			assert.equal(f.length, 1);
+			assert(f[0].equals(c));
+		});
+	});
 });
