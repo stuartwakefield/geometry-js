@@ -146,4 +146,33 @@ describe('geometry.Line', function () {
 			assert.equal(b.end().y(), 0.0);
 		});
 	});
+
+	describe('#point(dist)', function () {
+		it('Returns the point at the specified distance from the start', function () {
+			var a = geometry.createLineRaw(0.0, 5.0, 10.0, 5.0);
+			var b = geometry.createLineRaw(5.0, 0.0, 5.0, 10.0);
+			var c = geometry.createLineRaw(0.0, 0.0, 10.0, 10.0);
+			var d = a.point(5.0);
+			var e = b.point(2.0);
+			var f = c.point(8.0);
+			assert.equal(d.x(), 5.0);
+			assert.equal(d.y(), 5.0);
+			assert.equal(e.x(), 5.0);
+			assert.equal(e.y(), 2.0);
+			assert.equal(Math.round(f.x() * 100) / 100, 5.66);
+			assert.equal(Math.round(f.y() * 100) / 100, 5.66);
+		});
+
+		it('Returns null if the dist is out of bounds', function () {
+			var a = geometry.createLineRaw(0.0, 5.0, 10.0, 5.0);
+			var b = geometry.createLineRaw(5.0, 0.0, 5.0, 10.0);
+			var c = geometry.createLineRaw(0.0, 0.0, 10.0, 10.0);
+			var d = a.point(12.0);
+			var e = b.point(-2.0);
+			var f = c.point(15.0);
+			assert(d === null);
+			assert(e === null);
+			assert(d === null);
+		});
+	});
 });
