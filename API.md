@@ -137,21 +137,56 @@ Returns the area of the polygon.
 
 ### polygon.containsPoint(point)
 
+Returns true if the passed **Point**, point, is contained within the polygon.
+
 ### polygon.contains(other)
+
+Returns true if the passed **Polygon**, other, is contained completely within the
+polygon.
 
 ### polygon.intersectLine(line)
 
+Returns a list of zero to many lines that represent the areas of the passed line
+that intersect with the polygon. Line must be an instance of **Line**.
+
 ### polygon.intersect(other)
+
+Returns a list of zero to many polygons that represent overlaps between the
+polygon and other, which must be an instance of **Polygon**. The list will be
+empty if there are no overlaps.
 
 ### polygon.union(other)
 
+Returns a polygon that represent the area of the polygon plus the area of other,
+which must be an instance of **Polygon**.
+
+### polygon.complement(other)
+
+Returns a list of zero to many polygons that represent the remaining area of
+polygon after subtracting the area of other. Other must be an instance of **Polygon**.
+The list will be empty if the two polygons are equal.
+
 ### polygon.diff(other)
+
+Returns a list of zero to many polygons that represent the differences between
+the polygon and **other**. The list will be empty if the two polygons are equal.
+The result is equal to the complement of union and intersect. Other must be a
+**Polygon**.
 
 ### polygon.reverse()
 
+Reverses the directions of the points and edges that represent the polygon. Does
+not affect the coordinates of the polygon.
+
 ### polygon.truncate(dist)
 
+Returns a new **Polygon** that is the result of truncating the perimeter of the
+polygon from the first point, a passed **dist**, which must be a number.
+
 ### polygon.point(dist)
+
+Returns the **Point** that represents the coordinates found by tracing the
+perimeter of the polygon a passed **dist**, which must be a number.
 
 ## Class: geometry.Context(rotation, translation, scale)
 
