@@ -60,6 +60,11 @@ Returns **true** if the point and **other** represent the same coordinates.
 Returns a new **Point** that represents the position of the point after translating by
 **x** and **y**. Both **x** and **y** must be numbers.
 
+### point.substract(other)
+
+Returns a new **Point** that represents the position of the point after subtracting the
+coordinates of the point **other**, which must be an instance of **Point**.
+
 ## Class: geometry.Line(start, end)
 
 **Line** is created using the methods `geometry.createLine(start, end)` and
