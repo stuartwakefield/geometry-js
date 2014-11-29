@@ -8,6 +8,18 @@ module.exports = function (grunt) {
 			dist: {
 				files: {
 					'build/geometry.js': ['lib/geometry.js']
+				},
+				options: {
+					browserifyOptions: {
+						standalone: 'geometry'
+					}
+				}
+			}
+		},
+		uglify: {
+			dist: {
+				files: {
+					'build/geometry.min.js': ['build/geometry.js']
 				}
 			}
 		}
@@ -15,6 +27,7 @@ module.exports = function (grunt) {
 
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-browserify');
-	grunt.registerTask('default', ['jshint', 'browserify']);
+	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.registerTask('default', ['jshint', 'browserify', 'uglify']);
 
 };
