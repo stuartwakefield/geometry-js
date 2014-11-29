@@ -79,4 +79,14 @@ describe('geometry.Point', function () {
 			assert.equal(translated.y(), -5.0);
 		});
 	});
+
+	describe('#subtract(other)', function () {
+		it('Returns a new point that represents the point after subtracting the coordinates of other', function () {
+			var a = new Point(30.0, 50.0);
+			var b = new Point(10.0, 20.0);
+			var result = a.subtract(b);
+			assert.equal(result.x(), 20.0);
+			assert.equal(result.y(), 30.0);
+		});
+	});
 });
