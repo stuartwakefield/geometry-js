@@ -120,6 +120,11 @@ Returns an array of one or two **Line** instances that represent the two line
 components that are produced as a result of splitting the line at the given distance
 from start. Returns a single line component if **dist** is out of bounds.
 
+### line.colinear(other)
+
+Returns **true** if the line is colinear with **other**, which must be an instance
+of **Line**.
+
 ## Class: geometry.Polygon(p1, p2, ..., pN)
 
 **Polygon** is created using the methods `geometry.createPolygon(p1, p2, ...,p3)`
