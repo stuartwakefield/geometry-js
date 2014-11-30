@@ -234,4 +234,34 @@ describe('geometry.Line', function () {
 			assert(f[0].equals(c));
 		});
 	});
+
+	describe('#colinear(other)', function () {
+		it('Returns true if other is colinear', function () {
+			var a = geometry.createLineRaw(0.0, 0.0, 10.0, 10.0);
+			var b = geometry.createLineRaw(50.0, 50.0, 100.0, 100.0);
+			var c = geometry.createLineRaw(5.0, 5.0, 7.0, 7.0);
+			var d = geometry.createLineRaw(-20.0, -20.0, 5.0, 5.0);
+
+			assert(a.colinear(b));
+			assert(a.colinear(c));
+			assert(a.colinear(d));
+			assert(b.colinear(c));
+			assert(b.colinear(d));
+			assert(c.colinear(d));
+		});
+
+		it('Returns false if other is not colinear', function () {
+			var a = geometry.createLineRaw(0.0, 0.0, 10.0, 10.0);
+			var b = geometry.createLineRaw(50.0, 50.0, 100.0, 50.0);
+			var c = geometry.createLineRaw(5.0, 3.0, 7.0, 5.0);
+			var d = geometry.createLineRaw(-20.0, -10.0, 5.0, 5.0);
+
+			assert(!a.colinear(b), 'a-b');
+			assert(!a.colinear(c), 'a-c');
+			assert(!a.colinear(d), 'a-d');
+			assert(!b.colinear(c), 'b-c');
+			assert(!b.colinear(d), 'b-d');
+			assert(!c.colinear(d), 'c-d');
+		});
+	});
 });
