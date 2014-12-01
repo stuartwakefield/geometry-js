@@ -98,6 +98,35 @@ describe('geometry.Polygon', function () {
 				4.0, -1.0
 			);
 			assert.equal(polygon.area(), 66.0);
+
+			var square = geometry.createPolygonRaw(
+				0.0, 0.0,
+				10.0, 0.0,
+				10.0, 10.0,
+				0.0, 10.0
+			);
+			assert.equal(square.area(), 100.0);
+		});
+
+		it('Returns zero for complex polygons', function () {
+			var crossed = geometry.createPolygonRaw(
+				0.0, 0.0,
+				10.0, 10.0,
+				10.0, 0.0,
+				0.0, 10.0
+			);
+			assert.equal(crossed.area(), 0.0);
+
+			var multiple = geometry.createPolygonRaw(
+				0.0, 0.0,
+				10.0, 10.0,
+				20.0, 0.0,
+				20.0, 20.0,
+				10.0, -10.0,
+				0.0, 20.0
+			);
+
+			assert.equal(crossed.area(), 0.0);
 		});
 	});
 

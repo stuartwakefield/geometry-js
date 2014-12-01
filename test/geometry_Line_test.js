@@ -65,6 +65,28 @@ describe('geometry.Line', function () {
 		});
 	});
 
+	describe('#colinearPoint(point)', function () {
+
+		var a = geometry.createLineRaw(0.0, 0.0, 10.0, 0.0);
+		var b = geometry.createLineRaw(0.0, 0.0, 10.0, 10.0);
+		var c = geometry.createLineRaw(0.0, 0.0, 0.0, 10.0);
+		var m = geometry.createPoint(5.0, 0.0);
+		var n = geometry.createPoint(5.0, 5.0);
+		var o = geometry.createPoint(0.0, 5.0);
+
+		it('Returns true if the point is colinear to the line', function () {
+			assert(a.colinearPoint(m));
+			assert(b.colinearPoint(n));
+			assert(c.colinearPoint(o));
+		});
+
+		it('Returns false if the point is not colinear to the line', function () {
+			assert(!a.colinearPoint(o));
+			assert(!b.colinearPoint(m));
+			assert(!c.colinearPoint(n));
+		});
+	});
+
 	describe('#containsPoint(point)', function () {
 		it('Returns true if the point is along the line', function () {
 			var a = geometry.createLineRaw(0.0, 0.0, 10.0, 10.0);
@@ -241,6 +263,8 @@ describe('geometry.Line', function () {
 			var b = geometry.createLineRaw(50.0, 50.0, 100.0, 100.0);
 			var c = geometry.createLineRaw(5.0, 5.0, 7.0, 7.0);
 			var d = geometry.createLineRaw(-20.0, -20.0, 5.0, 5.0);
+			var e = geometry.createLineRaw(5.0, 10.0, 5.0, 15.0);
+			var f = geometry.createLineRaw(10.0, 5.0, 10.0, 15.0);
 
 			assert(a.colinear(b));
 			assert(a.colinear(c));
@@ -248,6 +272,9 @@ describe('geometry.Line', function () {
 			assert(b.colinear(c));
 			assert(b.colinear(d));
 			assert(c.colinear(d));
+			assert(f.colinear(f));
+			assert(e.colinear(e));
+
 		});
 
 		it('Returns false if other is not colinear', function () {
@@ -255,13 +282,16 @@ describe('geometry.Line', function () {
 			var b = geometry.createLineRaw(50.0, 50.0, 100.0, 50.0);
 			var c = geometry.createLineRaw(5.0, 3.0, 7.0, 5.0);
 			var d = geometry.createLineRaw(-20.0, -10.0, 5.0, 5.0);
+			var e = geometry.createLineRaw(5.0, 10.0, 5.0, 15.0);
+			var f = geometry.createLineRaw(10.0, 10.0, 10.0, 15.0);
 
-			assert(!a.colinear(b), 'a-b');
-			assert(!a.colinear(c), 'a-c');
-			assert(!a.colinear(d), 'a-d');
-			assert(!b.colinear(c), 'b-c');
-			assert(!b.colinear(d), 'b-d');
-			assert(!c.colinear(d), 'c-d');
+			assert(!a.colinear(b));
+			assert(!a.colinear(c));
+			assert(!a.colinear(d));
+			assert(!b.colinear(c));
+			assert(!b.colinear(d));
+			assert(!c.colinear(d));
+			assert(!e.colinear(f));
 		});
 	});
 });
